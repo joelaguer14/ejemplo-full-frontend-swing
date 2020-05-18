@@ -30,7 +30,7 @@ public class Constants {
     /**
      *
      */
-    public static final String WS_ENDPOINT = "http://localhost:8080/api/";
+    public static final String WS_ENDPOINT = "http://localhost:8083/api/";
 
     /**
      *
