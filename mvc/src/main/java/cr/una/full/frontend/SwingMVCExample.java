@@ -27,6 +27,8 @@ import org.apache.logging.log4j.Logger;
 import javax.swing.*;
 import java.io.IOException;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  * Swing MVC Example
  *
@@ -56,6 +58,7 @@ public class SwingMVCExample {
                     logger.error("Error al leer el archivo: ", e);
                 } catch (Exception e) {
                     logger.error("Error general: ", e);
+                    showMessageDialog(null, "Error General " + e);
                 }
             }
         });
