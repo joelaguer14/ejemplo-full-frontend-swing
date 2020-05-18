@@ -121,30 +121,27 @@ public class StudentController {
 
         dataVector = new Vector();
 
-        try {
-            if (!"".equals(searchTerm) && searchTerm.length() > 0) {
-                listStudentModel = studentService.searchStudentsByTerm(searchTerm);
+        if (!"".equals(searchTerm) && searchTerm.length() > 0) {
+            listStudentModel = studentService.searchStudentsByTerm(searchTerm);
 
-            } else {
-                listStudentModel = studentService.loadAllStudents();
-            }
-
-            if (listStudentModel != null && listStudentModel.size() > 0) {
-                int index = 0;
-                Vector<String> studentVector = null;
-                for (Student student : listStudentModel) {
-                    studentVector = new Vector();
-                    studentVector.add(checkIfNull(student.getId()));
-                    studentVector.add(checkIfNull(student.getName()));
-                    studentVector.add(checkIfNull(student.getCourse()));
-                    studentVector.add(checkIfNull(student.getRating()));
-
-                    dataVector.add(studentVector);
-                }
-            }
-        } catch (IOException e) {
-            logger.error("Error general al traer datos del Service: ", e);
+        } else {
+            listStudentModel = studentService.loadAllStudents();
         }
+
+        if (listStudentModel != null && listStudentModel.size() > 0) {
+            int index = 0;
+            Vector<String> studentVector = null;
+            for (Student student : listStudentModel) {
+                studentVector = new Vector();
+                studentVector.add(checkIfNull(student.getId()));
+                studentVector.add(checkIfNull(student.getName()));
+                studentVector.add(checkIfNull(student.getCourse()));
+                studentVector.add(checkIfNull(student.getRating()));
+
+                dataVector.add(studentVector);
+            }
+        }
+
         return dataVector;
     }
 

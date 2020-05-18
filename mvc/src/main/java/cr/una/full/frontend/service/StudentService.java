@@ -27,7 +27,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,7 +58,7 @@ public class StudentService {
      * @param searchTerm filter term
      * @return the list of Students
      */
-    public List<Student> searchStudentsByTerm(String searchTerm) throws IOException {
+    public List<Student> searchStudentsByTerm(String searchTerm) {
 
         logger.debug("Obteniendo la lista de estudiantes que coinciden con ["+searchTerm+"]");
 
@@ -82,7 +81,7 @@ public class StudentService {
      *
      * @return the list of Students
      */
-    public List<Student> loadAllStudents() throws IOException {
+    public List<Student> loadAllStudents() {
 
         logger.debug("Obteniendo toda la lista de estudiantes");
 
